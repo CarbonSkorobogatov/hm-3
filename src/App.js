@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import Three from './ThreeJs/Three'
+import React from 'react'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {isMounted: true};
+  
+  render()
+  {
+    const {isMounted = true} = this.state;
+
+    return(
+      <div>
+          <button onClick={() => this.setState(state => ({isMounted: !state.isMounted}))}>
+            {isMounted ? "Unmount" : "Mount"}
+          </button>
+          {isMounted && <Three />}
+      </div>
+    )
+  }
 }
 
 export default App;
