@@ -8,6 +8,7 @@ const style = {
 
 
 class Three extends Component {
+    
     componentDidMount() {
         this.sceneSetup();
         this.addCustomSceneObjects();
@@ -20,7 +21,6 @@ class Three extends Component {
         window.cancelAnimationFrame(this.requestID);
         this.controls.dispose();
     }
-
 
     sceneSetup = () => {
        
